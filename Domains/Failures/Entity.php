@@ -22,7 +22,7 @@ class Entity extends AbstractEntity
 {
     public function getKey(): string
     {
-        return $this->getField('key_road');
+        return $this->getField('key_failure');
     }
 
     public function parseSummary(): string
@@ -68,6 +68,6 @@ class Entity extends AbstractEntity
 
     public function getTimestamp(string $format = "Y-m-d H:i:s")
     {
-        return date($format, strtotime($this->getKey()));
+        return date($format, strtotime($this->getDt()));
     }
 }

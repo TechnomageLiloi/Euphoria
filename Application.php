@@ -5,6 +5,8 @@ namespace Liloi\Euphoria;
 use Rune\Application\General as GeneralApplication;
 use Liloi\Config\Pool;
 use Liloi\Config\Sparkle;
+use Liloi\Euphoria\Domains\Failures\Manager as FailuresManager;
+use Liloi\Euphoria\Domains\Manager as DomainsManager;
 
 class Application extends GeneralApplication
 {
@@ -33,7 +35,7 @@ class Application extends GeneralApplication
 
         Pool::getSingleton()->set(new Sparkle('connection', function() use ($config) { return $config['connection'];}));
         Pool::getSingleton()->set(new Sparkle('prefix', function() use ($config) { return $config['prefix'];}));
-//        DomainsManager::setConfig(Pool::getSingleton());
+        DomainsManager::setConfig(Pool::getSingleton());
     }
 
     public function apiLayout(): array
@@ -43,5 +45,46 @@ class Application extends GeneralApplication
                 'config' => $this->getConfig()
             ]),
         ];
+    }
+
+    public function apiCreate(): array
+    {
+        FailuresManager::create();
+        return [];
+    }
+
+    public function apiShow(): array
+    {
+        $collection = FailuresManager::loadCollection();
+
+        return [
+            'render' => $this->render(__DIR__ . '/Show.tpl', [
+                'collection' => $collection
+            ])
+        ];
+    }
+
+    public function apiEdit(): array
+    {
+        $entity = FailuresManager::load($_POST['parameters']['key']);
+
+        return [
+            'render' => $this->render(__DIR__ . '/Edit.tpl', [
+                'entity' => $entity
+            ])
+        ];
+    }
+
+    public function apiSave(): array
+    {
+        $entity = FailuresManager::load($_POST['parameters']['key']);
+
+        $entity->setTitle($_POST['parameters']['title']);
+        $entity->setSummary($_POST['parameters']['summary']);
+        $entity->setData($_POST['parameters']['data']);
+
+        $entity->save();
+
+        return [];
     }
 }

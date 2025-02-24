@@ -13,7 +13,7 @@ class Manager extends DomainManager
      */
     public static function getTableName(): string
     {
-        return self::getTablePrefix() . 'road';
+        return self::getTablePrefix() . 'failures';
     }
 
     public static function loadCollection(): Collection
@@ -21,7 +21,7 @@ class Manager extends DomainManager
         $name = self::getTableName();
 
         $rows = self::getAdapter()->getArray(sprintf(
-            'select * from %s order by key_failure desc;',
+            'select * from %s order by key_failure desc limit 17;',
             $name
         ));
 
@@ -78,11 +78,8 @@ class Manager extends DomainManager
      */
     public static function create(): Entity
     {
-        $key = date('Y-m-d H:i:s');
-
         $name = self::getTableName();
         $data = [
-            'key_failure' => $key,
             'title' => 'Enter failure title',
             'dt' => date('Y-m-d H:i:s'),
             'summary' => '-',
