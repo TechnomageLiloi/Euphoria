@@ -1,0 +1,41 @@
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: monospace;
+  background-color: white;
+}
+body a.butn {
+  border: red 1px solid;
+  padding: 2px;
+  background-color: #ffebeb;
+  border-radius: 5px;
+  text-decoration: none;
+  color: red;
+}
+body a.butn:hover {
+  background-color: #ffffeb;
+}
+body #menu {
+  text-align: center;
+  padding: 10px;
+  background-color: lightyellow;
+}
+body table {
+  width: 100%;
+}
+body table tr:hover:not(:first-child) {
+  background-color: #dcffdb;
+}
+body table th {
+  padding: 3px;
+  text-align: left;
+  border-bottom: gray 1px solid;
+}
+body table td {
+  padding: 3px;
+  text-align: left;
+  border-bottom: gray 1px dashed;
+  vertical-align: top;
+}
