@@ -11,5 +11,15 @@ use Liloi\Tools\Collection as AbstractCollection;
  */
 class Collection extends AbstractCollection
 {
+    public function getPeriod(): string
+    {
+        $date1 = new \DateTime(date('Y-m-d H:i:s'));
+        $date2 = new \DateTime($this[0]->getDt());
+        $interval = $date1->diff($date2);
 
+        return sprintf(
+            '%s days %s hours %s minutes %s seconds',
+            $interval->d, $interval->h, $interval->i, $interval->s
+        );
+    }
 }

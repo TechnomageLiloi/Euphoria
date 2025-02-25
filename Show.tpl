@@ -1,4 +1,7 @@
 <div id="show" style="text-align: center;">
+
+    <h3>Period: <?php echo $collection->getPeriod(); ?></h3>
+
     <table>
         <tr>
             <th>Timestamp</th>
