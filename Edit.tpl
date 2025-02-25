@@ -10,6 +10,10 @@
             <td><input type="text" name="price" value="<?php echo $entity->getPrice(); ?>"></td>
         </tr>
         <tr>
+            <td>Datetime</td>
+            <td><input type="text" name="dt" value="<?php echo $entity->getDt(); ?>"></td>
+        </tr>
+        <tr>
             <td>Summary</td>
             <td><input type="text" name="summary" value="<?php echo $entity->getSummary(); ?>"></td>
         </tr>
