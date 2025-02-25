@@ -5,6 +5,7 @@ create table euphoria_failures
     dt timestamp not null,
     summary text not null,
     data json not null,
+    price smallint unsigned default 0 not null,
     constraint euphoria_failures_pk
         primary key (key_failure)
 );

@@ -43,6 +43,7 @@ let Requests = {
         API.request('apiSave', {
             key: key,
             title: jq_block.find('[name=title]').val(),
+            price: jq_block.find('[name=price]').val(),
             summary: jq_block.find('[name=summary]').val(),
             data: jq_block.find('[name=data]').val()
         }, function (data) {

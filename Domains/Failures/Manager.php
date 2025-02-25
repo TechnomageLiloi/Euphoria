@@ -83,7 +83,8 @@ class Manager extends DomainManager
             'title' => 'Enter failure title',
             'dt' => date('Y-m-d H:i:s'),
             'summary' => '-',
-            'data' => '{}'
+            'data' => '{}',
+            'price' => '0'
         ];
 
         self::insert($name, $data);

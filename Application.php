@@ -82,6 +82,7 @@ class Application extends GeneralApplication
         $entity->setTitle($_POST['parameters']['title']);
         $entity->setSummary($_POST['parameters']['summary']);
         $entity->setData($_POST['parameters']['data']);
+        $entity->setPrice($_POST['parameters']['price']);
 
         $entity->save();
 

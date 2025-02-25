@@ -6,6 +6,10 @@
             <td><input type="text" name="title" value="<?php echo $entity->getTitle(); ?>"></td>
         </tr>
         <tr>
+            <td>Price</td>
+            <td><input type="text" name="price" value="<?php echo $entity->getPrice(); ?>"></td>
+        </tr>
+        <tr>
             <td>Summary</td>
             <td><input type="text" name="summary" value="<?php echo $entity->getSummary(); ?>"></td>
         </tr>
