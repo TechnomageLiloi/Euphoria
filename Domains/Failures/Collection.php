@@ -22,4 +22,17 @@ class Collection extends AbstractCollection
             $interval->d, $interval->h, $interval->i, $interval->s
         );
     }
+
+    public function getPrice(): string
+    {
+        $total = 0;
+
+        /** @var Entity $entity */
+        foreach ($this as $entity)
+        {
+            $total += $entity->getPrice();
+        }
+
+        return $total;
+    }
 }

@@ -1,6 +1,7 @@
 <div id="show" style="text-align: center;">
 
     <h3>Period: <?php echo $collection->getPeriod(); ?></h3>
+    <h3>Price: <?php echo $collection->getPrice(); ?></h3>
 
     <table>
         <tr>
